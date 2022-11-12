@@ -1,4 +1,4 @@
-# ArquiWeb_entregableREST
+# ArquiWeb_entregableSwagger
 ## Endpoints para Postman
 
 # Carrera:
