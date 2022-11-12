@@ -46,7 +46,7 @@ public class CarreraControllerJpa {
         return service.addCarrera(c);
     }
 
-    @Operation(summary = "Obtener una carrera por id")
+    @Operation(summary = "Obtener una carrera por id de Carrera.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Encontró la carrera",
                     content = {@Content(mediaType = "application/json",
