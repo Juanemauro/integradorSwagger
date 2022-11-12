@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=integrador_swagger
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - '3306:3306'
