@@ -10,11 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.Estudiante;
 import com.example.demo.services.EstudianteService;
@@ -29,6 +25,7 @@ import com.example.demo.services.EstudianteService;
  *  </ul>
  */
 @RestController
+@RequestMapping("/estudiante")
 public class EstudianteControllerJpa {
 
 	@Qualifier("estudianteService")
@@ -45,7 +42,7 @@ public class EstudianteControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Agregó el estudiante",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Estudiante.class)) })})
-	@PostMapping("/estudiante")
+	@PostMapping()
 	public Estudiante matricularEstudiante(@RequestBody Estudiante e) {
 		return service.addEstudiante(e);
 	}
@@ -55,7 +52,7 @@ public class EstudianteControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Se obtuvo la lista de estudiantes",
 					content = {@Content(mediaType = "application/json",
 							schema = @Schema(implementation = Estudiante.class))})})
-	@GetMapping("/estudiantes")
+	@GetMapping()
 	public List<Estudiante>getEstudiantesByCriterioAsc(){
 		return service.getEstudiantesByCriterio();
 	}
@@ -65,7 +62,7 @@ public class EstudianteControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Se encontró al estudiante.",
 					content = {@Content(mediaType = "application/json",
 							schema = @Schema(implementation = Estudiante.class))})})
-	@GetMapping("/estudiante/{libreta}")
+	@GetMapping("/libreta/{libreta}")
 	public Estudiante getEstudianteByLibreta(@PathVariable int libreta) {
 		return service.getEstudiante(libreta);
 	}
@@ -75,9 +72,11 @@ public class EstudianteControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Se obtuvo la lista de estudiantes.",
 					content = {@Content(mediaType = "application/json",
 							schema = @Schema(implementation = Estudiante.class))})})
-	@GetMapping("/estudiantes/{genero}")
+	@GetMapping("/{genero}")
 	public List<Estudiante>getEstudianteByGenero(@PathVariable String genero){
 		return service.getGenero(genero);
 	}
+
+
 	
 }

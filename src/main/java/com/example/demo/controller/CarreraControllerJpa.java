@@ -23,7 +23,6 @@ import com.example.demo.services.CarreraService;
  *  </ul>
  */
 @RestController
-@RequestMapping("/carrera")
 public class CarreraControllerJpa {
 
     @Qualifier("carreraService")
@@ -40,7 +39,7 @@ public class CarreraControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Agregó la carrera",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Carrera.class)) })})
-    @PostMapping()
+    @PostMapping("/carrera")
     public Carrera agregarCarrera(@RequestBody Carrera c) {
         return service.addCarrera(c);
     }
@@ -50,7 +49,7 @@ public class CarreraControllerJpa {
             @ApiResponse(responseCode = "200", description = "Encontró la carrera",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = Carrera.class))})})
-    @GetMapping("/{carreraID}")
+    @GetMapping("/carrera/{carreraID}")
     public Optional<Carrera> getCarrera(@PathVariable int carreraID) {
         return service.getCarrera(carreraID);
     }
