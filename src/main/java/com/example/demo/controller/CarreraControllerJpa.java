@@ -40,7 +40,6 @@ public class CarreraControllerJpa {
 			@ApiResponse(responseCode = "200", description = "Agregó la carrera",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Carrera.class)) })})
-
     @PostMapping()
     public Carrera agregarCarrera(@RequestBody Carrera c) {
         return service.addCarrera(c);

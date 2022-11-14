@@ -42,7 +42,7 @@ public class EstudianteControllerJpa {
 
 	@Operation(summary = "Agregar un estudiante")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Agregó el etudiante",
+			@ApiResponse(responseCode = "200", description = "Agregó el estudiante",
 					content = { @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Estudiante.class)) })})
 	@PostMapping("/estudiante")
