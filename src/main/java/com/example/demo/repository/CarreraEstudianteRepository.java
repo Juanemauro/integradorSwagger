@@ -35,8 +35,7 @@ public interface CarreraEstudianteRepository extends JpaRepository<CarreraEstudi
 			+ "JOIN e.inscripcion i "
 			+ "WHERE e.ciudad= :ciudad AND i.carrera= :carrera")
 	public List<Estudiante>getEstudianteCarrera(Carrera carrera, String ciudad);
-	
-	
+
 	@Query("SELECT c FROM Carrera c WHERE c.carreraID= :carreraID")
 	public Carrera getCarreraId(int carreraID);
 	
